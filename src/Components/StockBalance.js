@@ -170,7 +170,6 @@ const StockBalance = () => {
           <tr>
             <td>
               <input
-                disabled={showPurchased}
                 type="number"
                 value={flat}
                 onChange={(e) => {
@@ -180,7 +179,6 @@ const StockBalance = () => {
             </td>
             <td>
               <input
-                disabled={showPurchased}
                 type="number"
                 value={pattiHot}
                 onChange={(e) => {
@@ -190,7 +188,6 @@ const StockBalance = () => {
             </td>
             <td>
               <input
-                disabled={showPurchased}
                 type="number"
                 value={pattiCold}
                 onChange={(e) => {
@@ -200,7 +197,6 @@ const StockBalance = () => {
             </td>
             <td>
               <input
-                disabled={showPurchased}
                 type="number"
                 value={circle}
                 onChange={(e) => {
@@ -210,7 +206,6 @@ const StockBalance = () => {
             </td>
             <td>
               <input
-                disabled={showPurchased}
                 type="number"
                 value={utensils}
                 onChange={(e) => {
@@ -220,7 +215,6 @@ const StockBalance = () => {
             </td>
             <td>
               <input
-                disabled={showPurchased}
                 type="number"
                 value={scrap}
                 onChange={(e) => {
@@ -230,7 +224,6 @@ const StockBalance = () => {
             </td>
             <td>
               <input
-                disabled={showPurchased}
                 type="number"
                 value={rod}
                 onChange={(e) => {
@@ -240,7 +233,6 @@ const StockBalance = () => {
             </td>
             <td>
               <input
-                disabled={showPurchased}
                 type="number"
                 value={coil}
                 onChange={(e) => {
@@ -250,7 +242,6 @@ const StockBalance = () => {
             </td>
             <td>
               <input
-                disabled={showPurchased}
                 type="number"
                 value={jal}
                 onChange={(e) => {
