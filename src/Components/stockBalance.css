@@ -1,0 +1,196 @@
+/* stockBalance.css */
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #f4f4f9;
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+  margin: 20px 0;
+}
+
+table {
+  width: 90%;
+  margin: 20px auto;
+  border-collapse: collapse;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+thead {
+  background-color: #4caf50;
+  color: white;
+}
+
+thead th {
+  padding: 12px 15px;
+  text-align: center;
+  font-weight: bold;
+}
+
+tbody td {
+  text-align: center;
+  padding: 10px;
+}
+
+input[type="number"] {
+  width: 80%;
+  padding: 8px;
+  margin: 5px auto;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+  text-align: center;
+}
+
+input[type="number"]:focus {
+  outline: none;
+  border-color: #4caf50;
+  box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+}
+
+button {
+  display: block;
+  margin: 20px auto;
+  padding: 10px 20px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+div {
+  margin: 10px;
+}
+
+/* CSS for the 'sold' section */
+
+.sold {
+  background-color: #f9f9f9;
+  padding: 20px;
+  margin: 20px auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  text-align: center;
+}
+
+.sold h1 {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.sold label {
+  display: block;
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+.sold input {
+  width: 90%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.sold input:focus {
+  border-color: #4caf50;
+  box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+}
+
+.inline-inputs {
+  display: flex;
+  align-items: center;
+  gap: 5px; /* Reduced spacing between elements */
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+}
+
+.inline-inputs span {
+  font-weight: 500;
+  color: #333;
+}
+
+.inline-inputs input {
+  width: 80px; /* Increased input width */
+  height: 30px; /* Increased input height */
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  text-align: center;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.inline-inputs input:focus {
+  border-color: #4caf50;
+  box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+}
+
+@media (max-width: 768px) {
+  .inline-inputs {
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+
+  .inline-inputs input {
+    width: 70px; /* Adjusted for smaller screens */
+    height: 28px;
+  }
+
+  .inline-inputs span {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 768px) {
+  .sold {
+    padding: 15px;
+  }
+
+  .sold input {
+    width: 95%;
+  }
+
+  .sold h1 {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  table {
+    font-size: 14px;
+  }
+
+  input[type="number"] {
+    width: 95%;
+  }
+
+  button {
+    width: 90%;
+  }
+}
