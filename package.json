@@ -21,7 +21,6 @@
     "start": "electron-forge start",
     "electron": "electron .",
     "build": "react-scripts build",
-    "postinstall": "electron-builder install-app-deps",
     "package": "electron-forge package",
     "make": "electron-forge make"
   },
