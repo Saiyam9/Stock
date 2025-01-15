@@ -13,7 +13,9 @@ h1 {
   color: #333;
   margin: 20px 0;
 }
-
+.heading:hover {
+  cursor: pointer;
+}
 table {
   width: 90%;
   margin: 20px auto;

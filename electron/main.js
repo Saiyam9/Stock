@@ -1,7 +1,5 @@
-const { app, BrowserWindow } = require("electron");
+const { app, BrowserWindow, ipcMain } = require("electron");
 const path = require("path");
-
-// const isDev = process.env.NODE_ENV === "development";
 
 let mainWindow;
 
@@ -10,16 +8,13 @@ function createWindow() {
     width: 800,
     height: 600,
     webPreferences: {
-      nodeIntegration: true,
-      contextIsolation: false,
+      nodeIntegration: false,
+      contextIsolation: true,
       webSecurity: true,
+      preload: path.join(__dirname, "preload.js"), // Use preload for secure communication
     },
   });
 
-  // if (isDev) {
-  //   mainWindow.loadURL("http://localhost:3000");
-  //   mainWindow.webContents.openDevTools();
-  // } else {
   // Log the path for debugging
   const indexPath = path.join(__dirname, "..", "build", "index.html");
   console.log("Loading from:", indexPath);
@@ -30,6 +25,25 @@ function createWindow() {
     mainWindow = null;
   });
 }
+
+// Listen for the print request from the renderer process
+ipcMain.handle("print-page", (event) => {
+  if (mainWindow) {
+    mainWindow.webContents.print(
+      {
+        silent: false, // Show the print dialog
+        printBackground: true, // Print with background graphics
+      },
+      (success, failureReason) => {
+        if (!success) {
+          console.error("Print failed:", failureReason);
+        } else {
+          console.log("Print success!");
+        }
+      }
+    );
+  }
+});
 
 app.whenReady().then(createWindow);
 

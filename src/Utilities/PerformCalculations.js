@@ -52,12 +52,16 @@ export const performCalculations = (props) => {
   );
   console.log(hotBalance, "hotBalance");
 
+  const coil_balance =
+    Number(coil) + Number(coilPurchased) - Number(coilSold) - Number(coilLeft);
+
   const total_flat_for_conv =
     Number(flat) +
     Number(flatPurchased) -
     Number(flatSold) -
     Number(flatLeft) +
-    Number(hotBalance);
+    coil_balance;
+  Number(hotBalance);
   console.log(total_flat_for_conv, "total_flat_for_conv");
 
   const cold_made =
@@ -92,11 +96,12 @@ export const performCalculations = (props) => {
   const utensils_made =
     circle_for_utensils -
     ((Number(scrap2) + Number(shortage2)) / 100) * circle_for_utensils +
-    rod +
-    rodPurchased -
-    rodLeft -
-    rodSold;
+    Number(rod) +
+    Number(rodPurchased) -
+    Number(rodLeft) -
+    Number(rodSold);
   console.log(utensils_made, "utensils_made");
+  console.log("Rod Balance", rod, rodPurchased, rodLeft, rodSold);
 
   const y = (Number(scrap2) / 100) * circle_for_utensils;
 
@@ -118,6 +123,8 @@ export const performCalculations = (props) => {
   console.log(scrap_left, "scrap_left");
 
   console.log(utensils_left, scrap_left);
+  const shortage_a = (Number(shortage) / 100) * total_flat_for_conv;
+  const shortage_b = (Number(shortage2) / 100) * circle_for_utensils;
 
-  return { utensils_left, scrap_left };
+  return { utensils_left, scrap_left, shortage_a, shortage_b };
 };
