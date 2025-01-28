@@ -64,6 +64,7 @@ const StockBalance = () => {
   };
   const handleNextConvert = () => {
     setShowBalance(true);
+
     const output = performCalculations({
       flat,
       pattiHot,
@@ -145,6 +146,20 @@ const StockBalance = () => {
       shortage2
     );
     setBalance(output);
+  };
+  const handlePrint = () => {
+    if (window.electronAPI && window.electronAPI.printPage) {
+      window.electronAPI
+        .printPage()
+        .then(() => {
+          console.log("Print command sent successfully");
+        })
+        .catch((err) => {
+          console.error("Error during print:", err);
+        });
+    } else {
+      console.error("electronAPI or printPage is not defined");
+    }
   };
   return (
     <>
@@ -605,7 +620,7 @@ const StockBalance = () => {
             <span>SS utensils Final </span>
           </div>
 
-          <button onClick={handleNextConvert}>Next</button>
+          <button onClick={handleNextConvert}>Submit</button>
         </>
       )}
       {showBalance && (
@@ -617,8 +632,8 @@ const StockBalance = () => {
             <thead>
               <tr>
                 <th> SS Flat </th>
-                <th> SS Patti Hot </th>
-                <th> SS Patti Cold </th>
+                <th> SS Patti cold </th>
+                <th> SS Patti hot </th>
                 <th> SS Circle </th>
                 <th> SS Utensils </th>
                 <th> SS Scrap </th>
@@ -633,14 +648,17 @@ const StockBalance = () => {
                 <td>{pattiColdLeft}</td>
                 <td>{pattiHotLeft}</td>
                 <td>{circleLeft}</td>
-                <td>{balance.utensils_left}</td>
-                <td>{balance.scrap_left}</td>
+                <td style={{ fontWeight: "bold" }}>{balance.utensils_left}</td>
+                <td style={{ fontWeight: "bold" }}>{balance.scrap_left}</td>
                 <td>{rodLeft}</td>
                 <td>{coilLeft}</td>
                 <td>{jalLeft}</td>
               </tr>
             </tbody>
           </table>
+          <h3 style={{ color: "red" }}>Shortage 1 = {balance.shortage_a}</h3>
+          <h3 style={{ color: "red" }}>Shortage 2 = {balance.shortage_b} </h3>
+          <button onClick={handlePrint}>Print</button>
         </>
       )}
     </>
