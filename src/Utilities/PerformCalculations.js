@@ -50,7 +50,7 @@ export const performCalculations = (props) => {
     Number(pattiHotSold),
     Number(pattiHotLeft)
   );
-  console.log(hotBalance, "hotBalance");
+  console.log(hotBalance, "hotBalanceeee");
 
   const coil_balance =
     Number(coil) + Number(coilPurchased) - Number(coilSold) - Number(coilLeft);
@@ -60,12 +60,13 @@ export const performCalculations = (props) => {
     Number(flatPurchased) -
     Number(flatSold) -
     Number(flatLeft) +
-    coil_balance;
-  Number(hotBalance);
+    Number(hotBalance);
   console.log(total_flat_for_conv, "total_flat_for_conv");
 
   const cold_made =
-    total_flat_for_conv - (Number(shortage) / 100) * total_flat_for_conv;
+    total_flat_for_conv -
+    (Number(shortage) / 100) * total_flat_for_conv +
+    coil_balance;
   console.log(cold_made, "cold_made");
 
   const cold_for_circle =
